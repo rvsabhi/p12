@@ -1,8 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders shopping cart', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(
+    screen.getByRole('heading', { name: /shopping cart/i })
+  ).toBeInTheDocument();
+
+  expect(screen.getByText(/laptop/i)).toBeInTheDocument();
+  expect(screen.getByText(/headphones/i)).toBeInTheDocument();
+  expect(screen.getByText(/mouse/i)).toBeInTheDocument();
+  expect(screen.getByText(/total: ₹52800/i)).toBeInTheDocument();
 });
+
